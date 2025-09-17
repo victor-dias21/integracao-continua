@@ -17,4 +17,8 @@ services:
     ports:
       - 8080:8080
     depends_on:
+<<<<<<< HEAD
       - postgres
+=======
+      - postgres
+>>>>>>> b563a8d (inserindo build e check)
