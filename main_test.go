@@ -82,7 +82,10 @@ func TestBuscaAlunoPorIDHandler(t *testing.T) {
 	resposta := httptest.NewRecorder()
 	r.ServeHTTP(resposta, req)
 	var alunoMock models.Aluno
-	json.Unmarshal(resposta.Body.Bytes(), &alunoMock)
+	err := json.Unmarshal(resposta.Body.Bytes(), &alunoMock)
+	if err != nil {
+		t.Fatalf("Erro ao fazer unmarshal: %v", err)
+	}
 	assert.Equal(t, "Nome do Aluno Teste", alunoMock.Nome, "Os nomes devem ser iguais")
 	assert.Equal(t, "12345678901", alunoMock.CPF)
 	assert.Equal(t, "123456789", alunoMock.RG)
@@ -114,7 +117,10 @@ func TestEditaUmAlunoHandler(t *testing.T) {
 	resposta := httptest.NewRecorder()
 	r.ServeHTTP(resposta, req)
 	var alunoMockAtualizado models.Aluno
-	json.Unmarshal(resposta.Body.Bytes(), &alunoMockAtualizado)
+	err := json.Unmarshal(resposta.Body.Bytes(), &alunoMockAtualizado)
+	if err != nil {
+		t.Fatalf("Erro ao fazer unmarshal: %v", err)
+	}
 	assert.Equal(t, "47123456789", alunoMockAtualizado.CPF)
 	assert.Equal(t, "123456700", alunoMockAtualizado.RG)
 	assert.Equal(t, "Nome do Aluno Teste", alunoMockAtualizado.Nome)
