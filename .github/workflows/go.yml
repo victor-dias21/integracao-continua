@@ -41,3 +41,12 @@ jobs:
         DB_NAME=${{ secrets.DB_NAME }} \
         DB_PORT=${{ secrets.DB_PORT }} \
         go test -v main_test.go
+
+    - name: Build
+      run: go build main.go
+
+    - name: Upload projeto compilado
+      uses: actions/upload-artifact@v4
+      with:
+        name: projeto-compilado
+        path: main
