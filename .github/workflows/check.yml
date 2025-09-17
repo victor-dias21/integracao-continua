@@ -1,4 +1,4 @@
-name: "Verificações de código"
+name: "Verificações do código"
 
 on:
   pull_request:

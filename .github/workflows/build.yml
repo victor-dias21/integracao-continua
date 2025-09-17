@@ -1,4 +1,4 @@
-name: "Construção do artefato"
+name: "Construção do artefatos"
 
 on:
   push:

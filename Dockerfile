@@ -12,7 +12,7 @@ COPY ./go.sum /app/go.sum
 
 RUN go build main.go
 
-FROM alpine:latest AS production
+FROM alpine:latest AS prod
 
 EXPOSE 8080
 
