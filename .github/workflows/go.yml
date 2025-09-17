@@ -31,6 +31,7 @@ jobs:
       uses: golangci/golangci-lint-action@v8
       with:
         version: v2.1
-
+        args: controllers/ database/ models/ routes/
+        
     - name: Teste
       run: go test -v main_test.go
