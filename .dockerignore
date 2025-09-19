@@ -1,0 +1,9 @@
+.github/
+pkg
+postgres-database
+.gitignore
+docker-compose.yml
+Dockerfile
+main
+main_test
+Makefile
