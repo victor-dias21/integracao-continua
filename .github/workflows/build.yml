@@ -2,7 +2,9 @@ name: "Construção do artefato"
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "altera_pipeline" ] 
+  workflow_dispatch:  
+
 
 jobs:
   build:
@@ -10,16 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Go
-        uses: actions/setup-go@v4
-        with:
-          go-version: '1.22'
+      - name: Build docker image
+        run: docker build --target production -t victordias21/projeto_go:${{ github.sha }} .
 
-      - name: Build
-        run: go build main.go
-
-      - name: Projeto compilado
-        uses: actions/upload-artifact@v4
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
         with:
-          name: projeto_compilado
-          path: main
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
