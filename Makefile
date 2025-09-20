@@ -10,4 +10,3 @@ cd:
 	scp -i "~/.ssh/aws_alura2.pem" $(CURDIR)/main ec2-user@ec2-54-174-12-24.compute-1.amazonaws.com:/home/ec2-user
 	scp -ri "~/.ssh/aws_alura2.pem" $(CURDIR)/templates/ ec2-user@ec2-54-174-12-24.compute-1.amazonaws.com:/home/ec2-user
 	scp -ri "~/.ssh/aws_alura2.pem" $(CURDIR)/assets/ ec2-user@ec2-54-174-12-24.compute-1.amazonaws.com:/home/ec2-user
-
