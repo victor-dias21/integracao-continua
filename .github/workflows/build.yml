@@ -2,7 +2,7 @@ name: "Construção do artefato"
 
 on:
   push:
-    branches: [ "main", "altera_pipeline" ] 
+    branches: [ "main" ] 
   workflow_dispatch:  
 
 
